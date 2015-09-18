@@ -23,6 +23,7 @@ CFILES =	main.c \
 			listrooms.c \
 			listtubes.c \
 			rooms.c \
+			lemin.c \
 
 SRC = $(addprefix $(SRCDIR), $(CFILES))
 

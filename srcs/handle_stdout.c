@@ -27,9 +27,9 @@ void	display_tubes(t_lemin *l)
 	tmp = l->listtubes;
 	while (tmp)
 	{
-		ft_putstr(tmp->room.name);
+		ft_putstr(tmp->room->name);
 		ft_putstr("-");
-		ft_putstr(tmp->room2.name);
+		ft_putstr(tmp->room2->name);
 		ft_putstr("\n");
 		tmp = tmp->next;
 	}
@@ -37,24 +37,24 @@ void	display_tubes(t_lemin *l)
 
 void	display_start_end(t_lemin *l)
 {
-	t_rooms		start;
-	t_rooms		end;
+	t_rooms		*start;
+	t_rooms		*end;
 
 	start = get_room_start(l);
 	ft_putstr("##start\n");
-	ft_putstr(start.name);
+	ft_putstr(start->name);
 	ft_putstr(" ");
-	ft_putnbr(start.x);
+	ft_putnbr(start->x);
 	ft_putstr(" ");
-	ft_putnbr(start.y);
+	ft_putnbr(start->y);
 	ft_putstr("\n");
 	end = get_room_end(l);
 	ft_putstr("##end\n");
-	ft_putstr(end.name);
+	ft_putstr(end->name);
 	ft_putstr(" ");
-	ft_putnbr(end.x);
+	ft_putnbr(end->x);
 	ft_putstr(" ");
-	ft_putnbr(end.y);
+	ft_putnbr(end->y);
 	ft_putstr("\n");
 }
 
