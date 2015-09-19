@@ -31,7 +31,7 @@ void		listrooms_pushback(t_listrooms **beginlist,
 	}
 }
 
-t_listrooms		*ft_listrooms_new(t_rooms r)
+t_listrooms		*ft_listrooms_new(t_rooms *r)
 {
 	t_listrooms	*node;
 
@@ -41,23 +41,7 @@ t_listrooms		*ft_listrooms_new(t_rooms r)
 		return (NULL);
 	else
 	{
-		ft_putstr("DEBUG listrooms_new\n");
-		node->room.name = r.name;
-		ft_putstr(node->room.name);
-		ft_putstr(" => ");
-		node->room.x = r.x;
-		node->room.y = r.y;
-		node->room.start = r.start;
-		node->room.end = r.end;
-		while (r.linkrooms)
-		{
-			node->room.linkrooms = r.linkrooms;
-
-			ft_putstr(node->room.linkrooms->room.name);
-			ft_putstr(" ");
-			r.linkrooms = r.linkrooms->next;
-		}
-		ft_putstr("\n");
+		node->room = r;
 		node->next = NULL;
 	}
 	return (node);
@@ -65,24 +49,25 @@ t_listrooms		*ft_listrooms_new(t_rooms r)
 
 void			handle_listrooms(t_lemin *l, char *line, char *prev)
 {
-	t_rooms		r;
+	t_rooms		*r;
 	char		**room_infos;
 
+	r = (t_rooms *)malloc(sizeof(t_rooms));
 	room_infos = ft_strsplit(line, ' ');
-	r.name = room_infos[0];
-	r.x = ft_atoi(room_infos[1]);
-	r.y = ft_atoi(room_infos[2]);
-	r.start = 0;
-	r.end = 0;
-	r.ant = 0;
-	r.weight = 0;
-	r.linkrooms = NULL;
+	r->name = room_infos[0];
+	r->x = ft_atoi(room_infos[1]);
+	r->y = ft_atoi(room_infos[2]);
+	r->start = 0;
+	r->end = 0;
+	r->ant = 0;
+	r->weight = 0;
+	r->linkrooms = NULL;
 	if (ft_strcmp("##start", prev) == 0)
 	{
-		r.ant = l->number_ant;
-		r.start = 1;
+		r->ant = l->number_ant;
+		r->start = 1;
 	}
 	if (ft_strcmp("##end", prev) == 0)
-		r.end = 1;
+		r->end = 1;
 	listrooms_pushback(&(l->listrooms), ft_listrooms_new(r));
 }

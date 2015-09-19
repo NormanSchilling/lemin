@@ -22,7 +22,7 @@ struct						s_rooms
 
 struct						s_listrooms
 {
-	t_rooms					room;
+	t_rooms					*room;
 	t_listrooms				*next;
 };
 
@@ -50,7 +50,7 @@ void			read_stdin(t_lemin *l);
 int				listrooms_size(t_listrooms *beginlist);
 void			listrooms_pushback(t_listrooms **beginlist,
 	t_listrooms *newlist);
-t_listrooms		*ft_listrooms_new(t_rooms r);
+t_listrooms		*ft_listrooms_new(t_rooms *r);
 void			handle_listrooms(t_lemin *l, char *line, char *prev);
 
 int				listtubes_size(t_listtubes *beginlist);
@@ -71,5 +71,5 @@ void			link_rooms(t_lemin *l);
 void			display_linkrooms(t_lemin *l);
 
 int				check_weight_is_define(t_listrooms *current);
-void			set_weight(t_lemin *l, t_listrooms *currentlink, int prev_weight);
+void			set_weight(t_lemin *l, t_listrooms *currentlink, int asign_weight);
 void			define_rooms_weight(t_lemin *l);

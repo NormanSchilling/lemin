@@ -7,13 +7,13 @@ void	display_rooms(t_lemin *l)
 	tmp = l->listrooms;
 	while (tmp)
 	{
-		if (tmp->room.start == 0 && tmp->room.end == 0)
+		if (tmp->room->start == 0 && tmp->room->end == 0)
 		{
-			ft_putstr(tmp->room.name);
+			ft_putstr(tmp->room->name);
 			ft_putstr(" ");
-			ft_putnbr(tmp->room.x);
+			ft_putnbr(tmp->room->x);
 			ft_putstr(" ");
-			ft_putnbr(tmp->room.y);
+			ft_putnbr(tmp->room->y);
 			ft_putstr("\n");
 		}
 		tmp = tmp->next;
