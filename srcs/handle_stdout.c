@@ -58,6 +58,15 @@ void	display_start_end(t_lemin *l)
 	ft_putstr("\n");
 }
 
+void	display_ant_path(t_rooms *path, int i)
+{
+	ft_putstr("L");
+	ft_putnbr(i);
+	ft_putstr("-");
+	ft_putstr(path->name);
+	ft_putstr(" ");
+}
+
 void	handle_stdout(t_lemin *l)
 {
 	ft_putnbr(l->number_ant);

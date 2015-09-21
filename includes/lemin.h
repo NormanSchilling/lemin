@@ -62,6 +62,7 @@ void			handle_listtubes(t_lemin *l, char *line);
 void			display_rooms(t_lemin *l);
 void			display_tubes(t_lemin *l);
 void			display_start_end(t_lemin *l);
+void			display_ant_path(t_rooms *path, int i);
 void			handle_stdout(t_lemin *l);
 
 t_rooms			*get_room_start(t_lemin *l);
@@ -70,6 +71,8 @@ t_rooms			*get_room_by_name(t_lemin *l, char *name);
 void			link_rooms(t_lemin *l);
 void			display_linkrooms(t_lemin *l);
 
-int				check_weight_is_define(t_listrooms *current);
-void			set_weight(t_lemin *l, t_listrooms *currentlink, int asign_weight);
+void			set_weight(t_lemin *l, t_listrooms *currentlink, t_rooms *parent, int asign_weight);
 void			define_rooms_weight(t_lemin *l);
+t_rooms			*get_room_path(t_listrooms *current);
+void			set_ant_path(int number_ant, t_rooms **ant_rooms);
+void			lemin_loop(t_lemin *l);

@@ -95,8 +95,8 @@ void	read_stdin(t_lemin *l)
 		}
 		prev = line;
 	}
-	handle_stdout(l);
 	link_rooms(l);
 	define_rooms_weight(l);
-	display_linkrooms(l);
+	handle_stdout(l);
+	lemin_loop(l);
 }

@@ -60,7 +60,7 @@ void			handle_listrooms(t_lemin *l, char *line, char *prev)
 	r->start = 0;
 	r->end = 0;
 	r->ant = 0;
-	r->weight = 0;
+	r->weight = -1;
 	r->linkrooms = NULL;
 	if (ft_strcmp("##start", prev) == 0)
 	{
