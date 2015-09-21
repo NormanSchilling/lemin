@@ -57,6 +57,7 @@ int				listtubes_size(t_listtubes *beginlist);
 void		listtubes_pushback(t_listtubes **beginlist,
 	t_listtubes *newlist);
 t_listtubes		*ft_listtubes_new(t_lemin *l, char *name1, char *name2);
+int				check_name_rooms(t_lemin *l, char *name);
 void			handle_listtubes(t_lemin *l, char *line);
 
 void			display_rooms(t_lemin *l);

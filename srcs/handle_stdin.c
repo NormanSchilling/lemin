@@ -62,7 +62,7 @@ void	check_stdin(t_lemin *l, char *line, char *prev, int i)
 	{
 		if (check_rooms(line) && check_tube(line))
 		{
-			ft_putstr("ERROR");
+			ft_putstr("ERROR\n");
 			exit(0);
 		}
 		else
